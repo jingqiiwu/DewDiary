@@ -12,6 +12,19 @@ function getTip() {
   document.getElementById("tip").innerText = randomTip;
 }
 
+async function getQuote() {
+  try {
+    let response = await fetch("https://api.allorigins.win/raw?url=https://zenquotes.io/api/random");
+    let data = await response.json();
+
+    document.getElementById("quote").innerText =
+      "Self-care reminder :): " + data[0].q + " — " + data[0].a;
+
+  } catch (error) {
+    document.getElementById("quote").innerText =
+      "Always be kind to yourself.";
+  }
+}
 function toggleTips() {
   let x = document.getElementById("extraTips");
   if (x.style.display === "none") {
