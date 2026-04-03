@@ -12,19 +12,19 @@ function getTip() {
   document.getElementById("tip").innerText = randomTip;
 }
 async function getQuote() {
-  let response = await fetch("https://api.adviceslip.com/advice");
-  let data = await response.json();
-  document.getElementById("quote").innerText = "Tip: " + data.slip.advice;
-}
+  try {
+    let response = await fetch(""https://api.adviceslip.com/advice"");
+    let data = await response.json();
 
-function toggleQuotes() {
-  let x = document.getElementById("extraQuotes");
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
+    document.getElementById("quote").innerText =
+      "Self-care tips :): " + data[0].q + " — " + data[0].a;
+
+  } catch (error) {
+    document.getElementById("quote").innerText =
+      "Always be kind to yourself 💕";
   }
 }
+
 
 function toggleTips() {
   let x = document.getElementById("extraTips");
