@@ -11,14 +11,14 @@ function getTip() {
   let randomTip = tips[Math.floor(Math.random() * tips.length)];
   document.getElementById("tip").innerText = randomTip;
 }
-async function getTip() {
+async function getQuote() {
   let response = await fetch("https://api.adviceslip.com/advice");
   let data = await response.json();
-  document.getElementById("tip").innerText = "Tip: " + data.slip.advice;
+  document.getElementById("quote").innerText = "Tip: " + data.slip.advice;
 }
 
-function toggleTips() {
-  let x = document.getElementById("extraTips");
+function toggleQuotes() {
+  let x = document.getElementById("extraQuotes");
   if (x.style.display === "none") {
     x.style.display = "block";
   } else {
