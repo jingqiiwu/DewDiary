@@ -11,21 +11,21 @@ function getTip() {
   let randomTip = tips[Math.floor(Math.random() * tips.length)];
   document.getElementById("tip").innerText = randomTip;
 }
-async function getQuote() {
-  try {
-    let response = await fetch("https://type.fit/api/quotes");
-    let data = await response.json();
+async function getTip() {
+  let response = await fetch("https://api.adviceslip.com/advice");
+  let data = await response.json();
+  document.getElementById("tip").innerText = "Tip: " + data.slip.advice;
+}
 
-    let random = data[Math.floor(Math.random() * data.length)];
-
-    document.getElementById("quote").innerText =
-      "Self-care reminder :): " + random.text + " — " + (random.author || "Unknown");
-
-  } catch (error) {
-    document.getElementById("quote").innerText =
-      "Always be kind to yourself 💕";
+function toggleTips() {
+  let x = document.getElementById("extraTips");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
   }
 }
+
 function toggleTips() {
   let x = document.getElementById("extraTips");
   if (x.style.display === "none") {
