@@ -17,8 +17,7 @@ async function getQuote() {
     let response = await fetch("https://api.adviceslip.com/advice");
     let data = await response.json();
 
-    document.getElementById("quote").innerText =
-      "Self-care tips :): " + data.slip.advice;
+    document.getElementById("quote").innerText = data.slip.advice;
 
   } catch (error) {
     document.getElementById("quote").innerText =
