@@ -11,20 +11,20 @@ function getTip() {
   let randomTip = tips[Math.floor(Math.random() * tips.length)];
   document.getElementById("tip").innerText = randomTip;
 }
+
 async function getQuote() {
   try {
-    let response = await fetch(""https://api.adviceslip.com/advice"");
+    let response = await fetch("https://api.adviceslip.com/advice");
     let data = await response.json();
 
     document.getElementById("quote").innerText =
-      "Self-care tips :): " + data[0].q + " — " + data[0].a;
+      "Self-care tips :): " + data.slip.advice;
 
   } catch (error) {
     document.getElementById("quote").innerText =
       "Always be kind to yourself 💕";
   }
 }
-
 
 function toggleTips() {
   let x = document.getElementById("extraTips");
